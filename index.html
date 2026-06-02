@@ -371,6 +371,7 @@ footer{background:var(--dark);padding:48px 5% 28px;border-top:3px solid var(--ru
 .upload-preview{display:none;margin-top:4px;font-size:10px;color:var(--chrome);background:var(--off-white);padding:4px 8px;border-radius:6px;text-align:center;word-break:break-all;}
 
 </style>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </head>
 <body>
 
@@ -1301,8 +1302,7 @@ function submitContactForm(e){
   var formData = new FormData(form);
   fetch("https://formspree.io/f/xvzylgvz", {
     method: "POST",
-    body: formData,
-    headers: {"Accept": "application/json"}
+    body: formData
   }).then(function(r){
     if(r.ok){
       btn.textContent = "✓ Sent! We'll respond same day.";
@@ -1337,14 +1337,12 @@ function handleHeroSubmit(e){
   var formData = new FormData(form);
   fetch("https://formspree.io/f/xvzylgvz", {
     method: "POST",
-    body: formData,
-    headers: {"Accept": "application/json"}
+    body: formData
   }).then(function(r){
     if(r.ok){
       btn.textContent = "✓ Request Sent!";
       btn.style.background = "#10B981";
       form.reset();
-      // Reset upload areas
       document.querySelectorAll('.upload-area').forEach(function(a){
         a.style.borderColor='';a.style.background='';
       });
